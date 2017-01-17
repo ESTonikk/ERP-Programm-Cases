@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n1="urn:sap-com:document:sap:rfc:functions" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl" />
+  </wsdl:documentation>
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="IF_IF_Z_HH_CASE">
+    <sapsession:Session xmlns:sapsession="http://www.sap.com/webas/630/soap/features/session/">
+      <sapsession:enableSession>true</sapsession:enableSession>
+    </sapsession:Session>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseAddElements">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseAddNotes">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_BapiServiceTransactionCommit">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">DoCommit</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseChange">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseChangeAttributes">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseCreate">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseDelete">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseReadLog">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseDeleteElements">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseGetAttributes">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseGetNotes">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_CaseGetRecord">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_BapiServiceTransactionRollback">
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">DoRollback</sapcomhnd:enableCommit>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+      <xsd:simpleType name="char1">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char12">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char128">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="128" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char132">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="132" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char2">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char20">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char220">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="220" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char255">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="255" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char30">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char32">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="32" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char4">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char64">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="64" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char70">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="70" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="date10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+          <xsd:pattern value="\d\d\d\d-\d\d-\d\d" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="decimal21.7">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="21" />
+          <xsd:fractionDigits value="7" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="lang">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric12">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric3">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric6">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="6" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="time">
+        <xsd:restriction base="xsd:time">
+          <xsd:pattern value="[0-9]{2}:[0-9]{2}:[0-9]{2}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema xmlns:n0="urn:sap-com:document:sap:rfc:functions" attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style">
+      <xsd:import namespace="urn:sap-com:document:sap:rfc:functions" />
+      <xsd:complexType name="Bapipropme">
+        <xsd:sequence>
+          <xsd:element name="ElemNo" type="xsd:int" />
+          <xsd:element name="Name" type="n0:char64" />
+          <xsd:element name="Value" type="n0:char255" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Bapidocins">
+        <xsd:sequence>
+          <xsd:element name="ElemNo" type="xsd:int" />
+          <xsd:element name="Anchor" type="n0:char64" />
+          <xsd:element name="Description" type="n0:char255" />
+          <xsd:element name="ModelId" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Bapireltb">
+        <xsd:sequence>
+          <xsd:element name="ElemNo" type="xsd:int" />
+          <xsd:element name="Relation" type="n0:char2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Bapiret2">
+        <xsd:sequence>
+          <xsd:element name="Type" type="n0:char1" />
+          <xsd:element name="Id" type="n0:char20" />
+          <xsd:element name="Number" type="n0:numeric3" />
+          <xsd:element name="Message" type="n0:char220" />
+          <xsd:element name="LogNo" type="n0:char20" />
+          <xsd:element name="LogMsgNo" type="n0:numeric6" />
+          <xsd:element name="MessageV1" type="n0:char50" />
+          <xsd:element name="MessageV2" type="n0:char50" />
+          <xsd:element name="MessageV3" type="n0:char50" />
+          <xsd:element name="MessageV4" type="n0:char50" />
+          <xsd:element name="Parameter" type="n0:char32" />
+          <xsd:element name="Row" type="xsd:int" />
+          <xsd:element name="Field" type="n0:char30" />
+          <xsd:element name="System" type="n0:char10" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Bapinote">
+        <xsd:sequence>
+          <xsd:element name="ElemNo" type="xsd:int" />
+          <xsd:element name="Tdformat" type="n0:char2" />
+          <xsd:element name="Tdline" type="n0:char132" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Bapinoteid">
+        <xsd:sequence>
+          <xsd:element name="ElemNo" type="xsd:int" />
+          <xsd:element name="Tdid" type="n0:char4" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Bapiproptb">
+        <xsd:sequence>
+          <xsd:element name="Name" type="n0:char64" />
+          <xsd:element name="Value" type="n0:char255" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Bapirecpos">
+        <xsd:sequence>
+          <xsd:element name="RecNodeid" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Bapinoteheader">
+        <xsd:sequence>
+          <xsd:element name="ElemNo" type="xsd:int" />
+          <xsd:element name="Tdobject" type="n0:char10" />
+          <xsd:element name="Tdname" type="n0:char70" />
+          <xsd:element name="Tdid" type="n0:char4" />
+          <xsd:element name="Tdspras" type="n0:lang" />
+          <xsd:element name="Tdfuser" type="n0:char12" />
+          <xsd:element name="Tdfdate" type="n0:date10" />
+          <xsd:element name="Tdftime" type="n0:time" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Bapilog">
+        <xsd:sequence>
+          <xsd:element name="PoidId" type="n0:char32" />
+          <xsd:element name="Timestamp" type="n0:decimal21.7" />
+          <xsd:element name="Xuser" type="n0:char12" />
+          <xsd:element name="AreaId" type="n0:char32" />
+          <xsd:element name="ActId" type="n0:char32" />
+          <xsd:element name="SubobjId" type="n0:char32" />
+          <xsd:element name="Arg1" type="n0:char128" />
+          <xsd:element name="Arg2" type="n0:char128" />
+          <xsd:element name="ArgString" type="n0:char255" />
+          <xsd:element name="ActOtrRef" type="n0:char50" />
+          <xsd:element name="DisplayName" type="n0:char128" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfBapipropme">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Bapipropme" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfBapidocins">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Bapidocins" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfBapireltb">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Bapireltb" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfBapiret2">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Bapiret2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfBapinote">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Bapinote" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfBapinoteid">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Bapinoteid" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfBapiproptb">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Bapiproptb" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfBapirecpos">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Bapirecpos" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfBapinoteheader">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Bapinoteheader" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfBapilog">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Bapilog" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CaseAddElements">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ElementAttributes" type="tns:TableOfBapipropme" />
+            <xsd:element name="ElementIdentification" type="tns:TableOfBapipropme" />
+            <xsd:element name="ElementInsertion" type="tns:TableOfBapidocins" />
+            <xsd:element minOccurs="0" name="ElementRelations" type="tns:TableOfBapireltb" />
+            <xsd:element name="GUID" type="n0:char32" />
+            <xsd:element minOccurs="0" name="NewVersion" type="n0:char1" />
+            <xsd:element minOccurs="0" name="SkipErrors" type="n0:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseAddElementsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Return" type="tns:TableOfBapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseAddNotes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CaseNoteIds" type="tns:TableOfBapinoteid" />
+            <xsd:element name="CaseNotes" type="tns:TableOfBapinote" />
+            <xsd:element name="GUID" type="n0:char32" />
+            <xsd:element minOccurs="0" name="ReturnError" type="tns:TableOfBapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseAddNotesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Return" type="tns:Bapiret2" />
+            <xsd:element minOccurs="0" name="ReturnError" type="tns:TableOfBapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseChange">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CaseAttributes" type="tns:TableOfBapiproptb" />
+            <xsd:element minOccurs="0" name="CaseNoteIds" type="tns:TableOfBapinoteid" />
+            <xsd:element minOccurs="0" name="CaseNotes" type="tns:TableOfBapinote" />
+            <xsd:element minOccurs="0" name="DeleteOnlyFirst" type="n0:char1" />
+            <xsd:element minOccurs="0" name="ElementAttributes" type="tns:TableOfBapipropme" />
+            <xsd:element minOccurs="0" name="ElementIdentRecpos" type="tns:TableOfBapirecpos" />
+            <xsd:element minOccurs="0" name="ElementIdentSpPoid" type="tns:TableOfBapipropme" />
+            <xsd:element minOccurs="0" name="ElementIdentification" type="tns:TableOfBapipropme" />
+            <xsd:element minOccurs="0" name="ElementInsertion" type="tns:TableOfBapidocins" />
+            <xsd:element minOccurs="0" name="ElementRelations" type="tns:TableOfBapireltb" />
+            <xsd:element name="GUID" type="n0:char32" />
+            <xsd:element minOccurs="0" name="NewVersion" type="n0:char1" />
+            <xsd:element minOccurs="0" name="SkipErrors" type="n0:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseChangeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Return" type="tns:TableOfBapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseChangeAttributes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CaseAttributes" type="tns:TableOfBapiproptb" />
+            <xsd:element name="GUID" type="n0:char32" />
+            <xsd:element minOccurs="0" name="ReturnError" type="tns:TableOfBapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseChangeAttributesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Return" type="tns:Bapiret2" />
+            <xsd:element minOccurs="0" name="ReturnError" type="tns:TableOfBapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseCreate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CaseAttributes" type="tns:TableOfBapiproptb" />
+            <xsd:element minOccurs="0" name="CaseGuid" type="n0:char32" />
+            <xsd:element minOccurs="0" name="CaseNoteIds" type="tns:TableOfBapinoteid" />
+            <xsd:element minOccurs="0" name="CaseNotes" type="tns:TableOfBapinote" />
+            <xsd:element name="CaseType" type="n0:char4" />
+            <xsd:element minOccurs="0" name="CaseWfPath" type="n0:numeric12" />
+            <xsd:element minOccurs="0" name="ElementAttributes" type="tns:TableOfBapipropme" />
+            <xsd:element minOccurs="0" name="ElementIdentification" type="tns:TableOfBapipropme" />
+            <xsd:element minOccurs="0" name="ElementInsertion" type="tns:TableOfBapidocins" />
+            <xsd:element minOccurs="0" name="ElementRelations" type="tns:TableOfBapireltb" />
+            <xsd:element minOccurs="0" name="SkipErrors" type="n0:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseCreateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Guid" type="n0:char32" />
+            <xsd:element name="Return" type="tns:TableOfBapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseDelete">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GUID" type="n0:char32" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseDeleteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Return" type="tns:Bapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseDeleteElements">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="DeleteOnlyFirst" type="n0:char1" />
+            <xsd:element minOccurs="0" name="ElementIdentRecpos" type="tns:TableOfBapirecpos" />
+            <xsd:element minOccurs="0" name="ElementIdentSpPoid" type="tns:TableOfBapipropme" />
+            <xsd:element name="GUID" type="n0:char32" />
+            <xsd:element minOccurs="0" name="NewVersion" type="n0:char1" />
+            <xsd:element minOccurs="0" name="SkipErrors" type="n0:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseDeleteElementsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Return" type="tns:TableOfBapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseGetAttributes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CaseAttributes" type="tns:TableOfBapiproptb" />
+            <xsd:element name="GUID" type="n0:char32" />
+            <xsd:element minOccurs="0" name="IM_RESELECT_DB" type="n0:char1" />
+            <xsd:element minOccurs="0" name="ImFreeObjects" type="n0:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseGetAttributesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CaseAttributes" type="tns:TableOfBapiproptb" />
+            <xsd:element name="Return" type="tns:Bapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseGetNotes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CreatedBy" type="n0:char12" />
+            <xsd:element minOccurs="0" name="DateFrom" type="n0:date10" />
+            <xsd:element minOccurs="0" name="DateTo" type="n0:date10" />
+            <xsd:element name="GUID" type="n0:char32" />
+            <xsd:element minOccurs="0" name="IMDBREAD" type="n0:char1" />
+            <xsd:element minOccurs="0" name="ImFreeObjects" type="n0:char1" />
+            <xsd:element minOccurs="0" name="SearchTerm" type="n0:char132" />
+            <xsd:element minOccurs="0" name="TextId" type="n0:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseGetNotesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="NoteContents" type="tns:TableOfBapinote" />
+            <xsd:element name="NoteHeaders" type="tns:TableOfBapinoteheader" />
+            <xsd:element name="Return" type="tns:Bapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseGetRecord">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GUID" type="n0:char32" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseGetRecordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DocumentClass" type="n0:char10" />
+            <xsd:element name="ObjectId" type="n0:char32" />
+            <xsd:element name="Return" type="tns:Bapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseReadLog">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EndDate" type="n0:date10" />
+            <xsd:element name="GUID" type="n0:char32" />
+            <xsd:element minOccurs="0" name="MaxEntries" type="xsd:int" />
+            <xsd:element minOccurs="0" name="StartDate" type="n0:date10" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CaseReadLogResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LogEntries" type="tns:TableOfBapilog" />
+            <xsd:element name="Return" type="tns:Bapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BapiServiceTransactionCommit">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="WAIT" type="n0:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BapiServiceTransactionCommitResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Return" type="tns:Bapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BapiServiceTransactionRollback">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BapiServiceTransactionRollbackResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Return" type="tns:Bapiret2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CaseAddElements">
+    <wsdl:part name="parameters" element="tns:CaseAddElements" />
+  </wsdl:message>
+  <wsdl:message name="CaseAddElementsResponse">
+    <wsdl:part name="parameter" element="tns:CaseAddElementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaseAddNotes">
+    <wsdl:part name="parameters" element="tns:CaseAddNotes" />
+  </wsdl:message>
+  <wsdl:message name="CaseAddNotesResponse">
+    <wsdl:part name="parameter" element="tns:CaseAddNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaseChange">
+    <wsdl:part name="parameters" element="tns:CaseChange" />
+  </wsdl:message>
+  <wsdl:message name="CaseChangeResponse">
+    <wsdl:part name="parameter" element="tns:CaseChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaseChangeAttributes">
+    <wsdl:part name="parameters" element="tns:CaseChangeAttributes" />
+  </wsdl:message>
+  <wsdl:message name="CaseChangeAttributesResponse">
+    <wsdl:part name="parameter" element="tns:CaseChangeAttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaseCreate">
+    <wsdl:part name="parameters" element="tns:CaseCreate" />
+  </wsdl:message>
+  <wsdl:message name="CaseCreateResponse">
+    <wsdl:part name="parameter" element="tns:CaseCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaseDelete">
+    <wsdl:part name="parameters" element="tns:CaseDelete" />
+  </wsdl:message>
+  <wsdl:message name="CaseDeleteResponse">
+    <wsdl:part name="parameter" element="tns:CaseDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaseDeleteElements">
+    <wsdl:part name="parameters" element="tns:CaseDeleteElements" />
+  </wsdl:message>
+  <wsdl:message name="CaseDeleteElementsResponse">
+    <wsdl:part name="parameter" element="tns:CaseDeleteElementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaseGetAttributes">
+    <wsdl:part name="parameters" element="tns:CaseGetAttributes" />
+  </wsdl:message>
+  <wsdl:message name="CaseGetAttributesResponse">
+    <wsdl:part name="parameter" element="tns:CaseGetAttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaseGetNotes">
+    <wsdl:part name="parameters" element="tns:CaseGetNotes" />
+  </wsdl:message>
+  <wsdl:message name="CaseGetNotesResponse">
+    <wsdl:part name="parameter" element="tns:CaseGetNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaseGetRecord">
+    <wsdl:part name="parameters" element="tns:CaseGetRecord" />
+  </wsdl:message>
+  <wsdl:message name="CaseGetRecordResponse">
+    <wsdl:part name="parameter" element="tns:CaseGetRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="CaseReadLog">
+    <wsdl:part name="parameters" element="tns:CaseReadLog" />
+  </wsdl:message>
+  <wsdl:message name="CaseReadLogResponse">
+    <wsdl:part name="parameter" element="tns:CaseReadLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="BapiServiceTransactionCommit">
+    <wsdl:part name="parameters" element="tns:BapiServiceTransactionCommit" />
+  </wsdl:message>
+  <wsdl:message name="BapiServiceTransactionCommitResponse">
+    <wsdl:part name="parameter" element="tns:BapiServiceTransactionCommitResponse" />
+  </wsdl:message>
+  <wsdl:message name="BapiServiceTransactionRollback">
+    <wsdl:part name="parameters" element="tns:BapiServiceTransactionRollback" />
+  </wsdl:message>
+  <wsdl:message name="BapiServiceTransactionRollbackResponse">
+    <wsdl:part name="parameter" element="tns:BapiServiceTransactionRollbackResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Z_HH_CASE">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#IF_IF_Z_HH_CASE" />
+    </wsp:Policy>
+    <wsdl:operation name="CaseAddElements">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseAddElements" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseAddElements" />
+      <wsdl:output message="tns:CaseAddElementsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseAddNotes">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseAddNotes" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseAddNotes" />
+      <wsdl:output message="tns:CaseAddNotesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseChange">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseChange" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseChange" />
+      <wsdl:output message="tns:CaseChangeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseChangeAttributes">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseChangeAttributes" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseChangeAttributes" />
+      <wsdl:output message="tns:CaseChangeAttributesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseCreate">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseCreate" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseCreate" />
+      <wsdl:output message="tns:CaseCreateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseDelete">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseDelete" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseDelete" />
+      <wsdl:output message="tns:CaseDeleteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseDeleteElements">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseDeleteElements" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseDeleteElements" />
+      <wsdl:output message="tns:CaseDeleteElementsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseGetAttributes">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseGetAttributes" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseGetAttributes" />
+      <wsdl:output message="tns:CaseGetAttributesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseGetNotes">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseGetNotes" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseGetNotes" />
+      <wsdl:output message="tns:CaseGetNotesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseGetRecord">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseGetRecord" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseGetRecord" />
+      <wsdl:output message="tns:CaseGetRecordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CaseReadLog">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_CaseReadLog" />
+      </wsp:Policy>
+      <wsdl:input message="tns:CaseReadLog" />
+      <wsdl:output message="tns:CaseReadLogResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="BapiServiceTransactionCommit">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_BapiServiceTransactionCommit" />
+      </wsp:Policy>
+      <wsdl:input message="tns:BapiServiceTransactionCommit" />
+      <wsdl:output message="tns:BapiServiceTransactionCommitResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="BapiServiceTransactionRollback">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_BapiServiceTransactionRollback" />
+      </wsp:Policy>
+      <wsdl:input message="tns:BapiServiceTransactionRollback" />
+      <wsdl:output message="tns:BapiServiceTransactionRollbackResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
