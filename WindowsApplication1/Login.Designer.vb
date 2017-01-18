@@ -47,6 +47,7 @@ Partial Class Login
         Me.txtUser.Name = "txtUser"
         Me.txtUser.Size = New System.Drawing.Size(207, 20)
         Me.txtUser.TabIndex = 1
+        Me.txtUser.Text = "wsuser"
         '
         'txtPassword
         '
@@ -54,6 +55,7 @@ Partial Class Login
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(207, 20)
         Me.txtPassword.TabIndex = 2
+        Me.txtPassword.Text = "123456"
         Me.txtPassword.UseSystemPasswordChar = True
         '
         'Label1

@@ -1,5 +1,10 @@
-﻿Public Class CaseClass
+﻿Imports WindowsApplication1._Case
+
+Public Class CaseClass
     Private sap_proxy As _Case.Z_HH_CASEClient
+    Private bNote As Bapiret2
+    Private bAttrbute As Bapiproptb
+    Private bRecord As Bapiret2
     Private attributes As String
     Private record As String
     Private notes() As String
@@ -9,12 +14,16 @@
         sap_proxy.ClientCredentials.UserName.UserName = "wsuser"
         sap_proxy.ClientCredentials.UserName.Password = "123456"
 
+
 exitsub:
         Exit Sub
 errtrap:
         Print(Err.Erl & ": " & Err.Description)
         Resume exitsub
     End Sub
+
+
+
     Public Function create(ContentList As String) As Boolean
         On Error GoTo errtrap
         Dim txt As String
@@ -66,6 +75,7 @@ errtrap:
         Dim txt As String
         Dim inputTxt() As String
         Dim i As Integer
+
         i = 0
         inputTxt = Split(ContentList, "~~")
 
@@ -75,8 +85,10 @@ errtrap:
             i = i + 1
         Next
 
-        Me.saveToDB()
-        save = True
+        If Me.saveToDB() Then
+            save = True
+        End If
+
 exitfunction:
         Exit Function
 errtrap:
@@ -85,13 +97,15 @@ errtrap:
         Resume exitfunction
     End Function
 
-    Private Function saveToDB()
+    Private Function saveToDB() As Boolean
         On Error GoTo errtrap
 
+        saveToDB = True
 exitfunction:
         Exit Function
 errtrap:
         Print(Err.Erl & ": " & Err.Description)
+        saveToDB = False
         Resume exitfunction
     End Function
 
@@ -119,6 +133,33 @@ errtrap:
         End Get
         Set(value As String())
             notes = value
+        End Set
+    End Property
+
+    Public Property BRecord1 As Bapiret2
+        Get
+            Return bRecord
+        End Get
+        Set(value As Bapiret2)
+            bRecord = value
+        End Set
+    End Property
+
+    Public Property BAttrbute1 As Bapiproptb
+        Get
+            Return bAttrbute
+        End Get
+        Set(value As Bapiproptb)
+            bAttrbute = value
+        End Set
+    End Property
+
+    Public Property BNote1 As Bapiret2
+        Get
+            Return bNote
+        End Get
+        Set(value As Bapiret2)
+            bNote = value
         End Set
     End Property
 End Class

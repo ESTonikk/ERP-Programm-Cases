@@ -1,4 +1,6 @@
-﻿Public Class Mainwindow
+﻿Imports WindowsApplication1._Case
+
+Public Class Mainwindow
     Private sap_proxy As _Case.Z_HH_CASEClient
     Private newEditWindow As NewEdit
     Private LoginWindow As Login
@@ -60,5 +62,30 @@ errtrap:
     Private Sub Delete(sender As Object, e As EventArgs) Handles DeleteBtn.Click
 
         Me.currCaseObj = Nothing
+    End Sub
+
+    Private Sub Mainwindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'On Error GoTo errtrap
+        'Dim note As New Bapinote
+        'Dim noteGet As New CaseGetNotes
+        'Dim noteRequest As New CaseGetNotesRequest
+        Dim noteResponse As New CaseGetNotesResponse
+        Dim recordResponse As New CaseGetRecordResponse
+        Dim attributeResponse As New CaseGetAttributesResponse
+
+
+        If sap_proxy Is Nothing Then
+            sap_proxy = New Z_HH_CASEClient
+            sap_proxy.ClientCredentials.UserName.UserName = "wsuser"
+            sap_proxy.ClientCredentials.UserName.Password = "123456"
+        End If
+        noteResponse = sap_proxy.CaseGetNotes(New CaseGetNotes())
+        recordResponse = sap_proxy.CaseGetRecord(New CaseGetRecord())
+        attributeResponse = sap_proxy.CaseGetAttributes(New CaseGetAttributes())
+
+    End Sub
+
+    Private Sub CaseList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CaseList.SelectedIndexChanged
+
     End Sub
 End Class
